@@ -9,29 +9,30 @@ describe('Basics', function() {
     it('should build an empty graph', function() {
       g = Dagoba.graph()
       g.should.be.an('object')
-      g.edges.should.have.lengthOf(0)
-      g.vertices.should.have.lengthOf(0)
+      g.edges.should.have.property('size').equal(0)
+      g.vertices.should.have.property('size').equal(0)
     })
 
     it('should add a vertex v1', function() {
       g.addVertex(v1)
-      g.edges.should.have.lengthOf(0)
-      g.vertices.should.have.lengthOf(1)
+      g.edges.should.have.property('size').equal(0)
+      g.vertices.should.have.property('size').equal(1)
     })
 
     it('should add another vertex v2', function() {
       g.addVertex(v2)
-      g.edges.should.have.lengthOf(0)
-      g.vertices.should.have.lengthOf(2)
+      g.edges.should.have.property('size').equal(0)
+      g.vertices.should.have.property('size').equal(2)
     })
 
     it('should add an edge v1->v2', function() {
       g.addEdge(e1)
-      g.edges.should.have.lengthOf(1)
-      g.vertices.should.have.lengthOf(2)
+      g.edges.should.have.property('size').equal(1)
+      g.vertices.should.have.property('size').equal(2)
     })
 
     it('g.v(1) should return v1', function() {
+      debugger
       var out = g.v(1).run()
       out.should.deep.equal([v1])
     })
@@ -85,8 +86,8 @@ describe('Basics', function() {
                   
       g = Dagoba.graph(vertices, edges)
                   
-      g.vertices.should.have.lengthOf(6)
-      g.edges.should.have.lengthOf(17)
+      g.vertices.should.have.length(6)
+      g.edges.should.have.length(17)
       V = vertices, E = edges
       V.unshift('')
     })
